@@ -16,6 +16,7 @@ push:
 	@if [ "x$(MSG)" = 'x' ] ; then echo "Usage: MSG='whatever.' make push"; fi
 	@test "x$(MSG)" != 'x'
 	git commit -a -m "$(MSG)"
+	git push
 
 pull:
 	git pull
