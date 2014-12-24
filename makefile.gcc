@@ -1,13 +1,12 @@
 P=game1
 CFLAGS = `pkg-config --cflags sdl2 SDL2_image` -D_DEFAULT_SOURCE -g -O2 -std=c99 -Wall -ansi
-LDFLAGS = `pkg-config --libs sdl2 SDL2_image`
+LDLIBS = `pkg-config --libs sdl2 SDL2_image`
 CC = gcc
-OBJS = game1.o
 
-all: $(OBJS)
+all: $(P)
 
-game1.o: main.c
-	$(CC) $(CFLAGS) $(LDFLAGS) -o game1.o main.c
+$(P): main.c
+	$(CC) $(CFLAGS) $(LDLIBS) main.c -o $(P) #-c make the `made file` nonexecutable
 
 clean:
 	rm -f game1.o game1
